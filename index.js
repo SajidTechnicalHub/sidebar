@@ -9,3 +9,26 @@ const toggleNavbar = () =>{
 }
 
 mobile_nav.addEventListener("click", () => toggleNavbar())
+
+
+// Sticky Navbar
+
+const section_hero = document.querySelector(".section-hero")
+const observer = new IntersectionObserver(
+	(entries) =>{
+
+	const ent  = entries[0];
+	console.log(ent);
+
+	ent.isIntersecting == false
+	? document.body.classList.add("sticky-header")
+	: document.body.classList.remove("sticky-header");
+}, {
+
+	root: null,
+	rootMargin: "-70px",
+	threshold: 0,
+
+});
+
+observer.observe(section_hero);
